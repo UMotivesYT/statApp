@@ -1,0 +1,183 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Futura&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Futura', sans-serif;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #003366;
+    padding: 10px 20px;
+    border-radius: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; /* Reduced padding for mobile */
+    display: inline-block;
+}
+
+.navbar a:hover, .navbar a:focus {
+    background-color: #0055a5;
+    color: white;
+    outline: none;
+}
+
+/* Form Styles */
+form {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #003366;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover, button:focus {
+    background-color: #0055a5;
+    outline: none;
+}
+
+/* Calendar Styles */
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.day-cell {
+    width: calc(25% - 10px); /* 4 cells per row on mobile */
+    margin: 5px;
+    padding-top: 25%; /* Aspect ratio for square cells */
+    position: relative;
+    background: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.day-cell:hover, .day-cell:focus {
+    background: #f0f0f0;
+}
+
+.day-cell div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.day-cell.saved {
+    background-color: #b0e0e6; /* Light Blue for saved days */
+}
+
+/* Goal Sheet Styles */
+.goal-sheet {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.goal-sheet th, .goal-sheet td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.goal-sheet th {
+    background-color: #f2f2f2;
+}
+
+/* Error and Success States */
+.error {
+    border-color: red;
+}
+
+.success {
+    border-color: green;
+}
+
+/* Branding */
+.footer-brand {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Responsive Design for larger screens */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+
+    .navbar a {
+        padding: 14px 20px; /* Increased padding for larger screens */
+    }
+
+    button {
+        width: auto;
+    }
+
+    .day-cell {
+        width: calc(14.286% - 10px); /* 7 cells per row on desktop */
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        font-size: 12pt;
+    }
+
+    .navbar, button, #generateGoalSheet, .footer-brand {
+        display: none;
+    }
+
+    .goal-sheet {
+        page-break-inside: avoid;
+    }
+
+    .goal-sheet th, .goal-sheet td {
+        border: 1px solid black;
+    }
+
+    #results {
+        page-break-before: always;
+    }
+}
